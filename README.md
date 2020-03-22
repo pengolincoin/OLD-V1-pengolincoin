@@ -1,3 +1,5 @@
+# PENGOLINCOIN
+
 ![image](http://peng-pool.s2ii.xyz/peng-logo.png)
 
 ### Installing
