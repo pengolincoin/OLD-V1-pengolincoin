@@ -1,3 +1,5 @@
+![image](http://peng-pool.s2ii.xyz/peng-logo.png)
+
 ### Installing
 
 We offer binary images of the latest releases here: https://pengolincoin.s2ii.xyz
