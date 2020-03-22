@@ -11,8 +11,8 @@
 
 const std::string windowsAsciiArt = 
     "\n                                \n"
-    "|P|E|N|G|O|L|I|N|C|O|I|N|          \n"
-    "                                   \n"
+    "|P|E|N|G|O|L|I|N|C|O|I|N|         \n"
+    "                                  \n";
                                                                                                
 
 const std::string nonWindowsAsciiArt =
