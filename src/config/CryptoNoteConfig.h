@@ -206,8 +206,8 @@ const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 };
 
 const char* const SEED_NODES[] = {
-    "82.64.79.233:17897", // home
 	"78.46.222.91:17897", // vps
-	"51.159.55.89:17897" // dedi
+	"51.159.55.89:17897", // dedi
+    "116.203.178.152:17897" // clevery
 };
 } 
