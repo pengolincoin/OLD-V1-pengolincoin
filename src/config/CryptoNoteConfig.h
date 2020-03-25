@@ -54,7 +54,7 @@ const char GENESIS_COINBASE_TX_HEX[]                         = "011401ff00010002
 
 static_assert(sizeof(GENESIS_COINBASE_TX_HEX)/sizeof(*GENESIS_COINBASE_TX_HEX) != 1, "GENESIS_COINBASE_TX_HEX must not be empty.");
 
-const uint64_t GENESIS_BLOCK_TIMESTAMP                       = 1549813997;
+const uint64_t GENESIS_BLOCK_TIMESTAMP                       = 1584874186;
 
 const size_t   CRYPTONOTE_REWARD_BLOCKS_WINDOW               = 100;
 const size_t   CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE     = 100000; 
