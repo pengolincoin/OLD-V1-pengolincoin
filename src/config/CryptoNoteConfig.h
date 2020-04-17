@@ -25,7 +25,7 @@ const uint64_t DIFFICULTY_TARGET                             = 60; // seconds
 const uint64_t DIFFICULTY_TARGET_V2                          = DIFFICULTY_TARGET; 
 
 /* Height to swap to DIFFICULTY_TARGET_V2 */
-const uint64_t DIFFICULTY_TARGET_V2_HEIGHT                   = 50000; 
+const uint64_t DIFFICULTY_TARGET_V2_HEIGHT                   = 900000; 
 
 const uint32_t CRYPTONOTE_MAX_BLOCK_NUMBER                   = 500000000;
 const size_t   CRYPTONOTE_MAX_BLOCK_BLOB_SIZE                = 500000000;
@@ -46,7 +46,7 @@ static_assert(EMISSION_SPEED_FACTOR    <= 8 * sizeof(uint64_t), "Bad EMISSION_SP
 static_assert(EMISSION_SPEED_FACTOR_V2 <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 
 /* Height to swap to EMISSION_SPEED_FACTOR_V2 */
-const uint64_t EMISSION_SPEED_FACTOR_V2_HEIGHT               = 50000; 
+const uint64_t EMISSION_SPEED_FACTOR_V2_HEIGHT               = 900000; 
 
 const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(0);
 
@@ -118,7 +118,7 @@ static_assert(UPGRADE_VOTING_WINDOW > 1, "Bad UPGRADE_VOTING_WINDOW");
 /* Block heights we are going to have hard forks at */
 const uint64_t FORK_HEIGHTS[] =
 {
-    50000, // fork to fix tx size and count bloat
+    900000, // fork to fix tx size and count bloat
 };
 
 /* MAKE SURE TO UPDATE THIS VALUE WITH EVERY MAJOR RELEASE BEFORE A FORK */
@@ -198,8 +198,8 @@ const uint64_t DATABASE_READ_BUFFER_MB_DEFAULT_SIZE          = 32;
 const uint32_t DATABASE_DEFAULT_MAX_OPEN_FILES               = 100;
 const uint16_t DATABASE_DEFAULT_BACKGROUND_THREADS_COUNT     = 2;
 
-const char     LATEST_VERSION_URL[]                          = "https://pengolincoin.s2ii.xyz/";
-const std::string LICENSE_URL                                = "https://pengolincoin.s2ii.xyz/";
+const char     LATEST_VERSION_URL[]                          = "https://github.com/pengolincoin/pengolincoin/releases/latest";
+const std::string LICENSE_URL                                = "https://github.com/pengolincoin/pengolincoin/blob/master/LICENSE";
 const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 {
     {  0x07, 0x07, 0x07, 0x17, 0x17, 0x75, 0x75, 0x78, 0x37, 0x77, 0x37, 0x76, 0x27, 0x77, 0x35, 0x27  }
@@ -207,7 +207,7 @@ const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 
 const char* const SEED_NODES[] = {
 	"78.46.222.91:17897", // vps
-	"51.159.55.89:17897", // dedi
+	"116.203.254.18:17897", // ft4a
     "116.203.178.152:17897" // clevery
 };
 } 
