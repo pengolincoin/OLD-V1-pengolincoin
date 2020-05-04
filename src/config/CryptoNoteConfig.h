@@ -25,7 +25,7 @@ const uint64_t DIFFICULTY_TARGET                             = 60; // seconds
 const uint64_t DIFFICULTY_TARGET_V2                          = DIFFICULTY_TARGET; 
 
 /* Height to swap to DIFFICULTY_TARGET_V2 */
-const uint64_t DIFFICULTY_TARGET_V2_HEIGHT                   = 900000; 
+const uint64_t DIFFICULTY_TARGET_V2_HEIGHT                   = 0;
 
 const uint32_t CRYPTONOTE_MAX_BLOCK_NUMBER                   = 500000000;
 const size_t   CRYPTONOTE_MAX_BLOCK_BLOB_SIZE                = 500000000;
@@ -46,7 +46,7 @@ static_assert(EMISSION_SPEED_FACTOR    <= 8 * sizeof(uint64_t), "Bad EMISSION_SP
 static_assert(EMISSION_SPEED_FACTOR_V2 <= 8 * sizeof(uint64_t), "Bad EMISSION_SPEED_FACTOR");
 
 /* Height to swap to EMISSION_SPEED_FACTOR_V2 */
-const uint64_t EMISSION_SPEED_FACTOR_V2_HEIGHT               = 900000; 
+const uint64_t EMISSION_SPEED_FACTOR_V2_HEIGHT               = 0;
 
 const uint64_t GENESIS_BLOCK_REWARD                          = UINT64_C(0);
 
@@ -68,11 +68,11 @@ const size_t   CRYPTONOTE_DISPLAY_DECIMAL_POINT              = 8;
 const uint64_t MINIMUM_FEE                                   = UINT64_C(10000); 
 
 //This section defines our minimum and maximum mixin counts required for transactions 
-const uint64_t MINIMUM_MIXIN_V0                              = 0;   
+const uint64_t MINIMUM_MIXIN_V0                              = 0;
 const uint64_t MAXIMUM_MIXIN_V0                              = 3;
 
 //The mixin to use by default with zedwallet and turtle-service 
-const uint64_t DEFAULT_MIXIN_V0                              = 1; 
+const uint64_t DEFAULT_MIXIN_V0                              = 1;
 
 const uint64_t DEFAULT_DUST_THRESHOLD                        = UINT64_C(10);
 
@@ -118,7 +118,7 @@ static_assert(UPGRADE_VOTING_WINDOW > 1, "Bad UPGRADE_VOTING_WINDOW");
 /* Block heights we are going to have hard forks at */
 const uint64_t FORK_HEIGHTS[] =
 {
-    900000, // fork to fix tx size and count bloat
+    100000, // fork
 };
 
 /* MAKE SURE TO UPDATE THIS VALUE WITH EVERY MAJOR RELEASE BEFORE A FORK */
