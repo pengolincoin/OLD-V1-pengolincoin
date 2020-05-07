@@ -4,7 +4,7 @@
 
 ### Installing
 
-We offer binary images of the latest releases here: https://github.com/pengolincoin/pengolincoin/releases/lastest
+We offer binary images of the latest releases here: https://github.com/pengolincoin/pengolincoin/releases/latest
 
 If you would like to compile yourself, read on.
 
