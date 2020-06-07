@@ -11,6 +11,7 @@ include_directories(${CMAKE_SOURCE_DIR}/external/nlohmann-json)
 include_directories(${CMAKE_SOURCE_DIR}/external/rapidjson)
 include_directories(${CMAKE_SOURCE_DIR}/external/cxxopts)
 include_directories(${CMAKE_SOURCE_DIR}/external/cryptopp)
+include_directories(${CMAKE_SOURCE_DIR}/external/argon2/include)
 
 # Show cmake where the source files are
 # Note, if you add remove a source file, you will need to re-run cmake so it
@@ -131,6 +132,7 @@ endif()
 
 # Add the dependencies we need
 target_link_libraries(Common __filesystem)
+target_link_libraries(Crypto argon2)
 target_link_libraries(CryptoNoteCore Common Logging Crypto P2P Rpc Http Serialization System ${Boost_LIBRARIES})
 target_link_libraries(cryptotest Crypto Common)
 target_link_libraries(Errors SubWallets)
@@ -163,11 +165,11 @@ add_dependencies(WalletService version)
 add_dependencies(zedwallet version)
 
 # Finally build the binaries
-set_property(TARGET TurtleCoind PROPERTY OUTPUT_NAME "BitcoinMonod")
-set_property(TARGET zedwallet PROPERTY OUTPUT_NAME "zedwallet")
-set_property(TARGET zedwallet++ PROPERTY OUTPUT_NAME "zedwallet-beta")
-set_property(TARGET service PROPERTY OUTPUT_NAME "BitcoinMono-service")
-set_property(TARGET miner PROPERTY OUTPUT_NAME "miner")
+set_property(TARGET TurtleCoind PROPERTY OUTPUT_NAME "PengolinCoind")
+set_property(TARGET zedwallet PROPERTY OUTPUT_NAME "pengolin-wallet")
+set_property(TARGET zedwallet++ PROPERTY OUTPUT_NAME "pengolin-zedwallet-beta")
+set_property(TARGET service PROPERTY OUTPUT_NAME "pengolin-service")
+set_property(TARGET miner PROPERTY OUTPUT_NAME "pengolin-miner")
 set_property(TARGET cryptotest PROPERTY OUTPUT_NAME "cryptotest")
 set_property(TARGET WalletApi PROPERTY OUTPUT_NAME "wallet-api")
 

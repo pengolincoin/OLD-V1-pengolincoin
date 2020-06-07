@@ -50,6 +50,8 @@ const std::string CN_TURTLE_LITE_SLOW_HASH_V0 = "5e1891a15d5d85c09baf4a3bbe33675
 const std::string CN_TURTLE_LITE_SLOW_HASH_V1 = "ae7f864a7a2f2b07dcef253581e60a014972b9655a152341cb989164761c180a";
 const std::string CN_TURTLE_LITE_SLOW_HASH_V2 = "b2172ec9466e1aee70ec8572a14c233ee354582bcb93f869d429744de5726a26";
 
+const std::string PENGO = "b2fb902bf49599839a61ca28a4f981d549688fcd8759c405e679ed9ef136d1b9";
+
 
 const std::string CN_SOFT_SHELL_V0[] = {
   "5e1891a15d5d85c09baf4a3bbe33675cfa3f77229c8ad66c01779e590528d6d3",
@@ -349,6 +351,10 @@ int main(int argc, char** argv)
         TEST_HASH_FUNCTION(cn_turtle_lite_slow_hash_v2, CN_TURTLE_LITE_SLOW_HASH_V2);
 
         std::cout << std::endl;
+		
+		TEST_HASH_FUNCTION(pengo_slow_hash, PENGO);
+
+        std::cout << std::endl;
 
         for (uint64_t height = 0; height <= 8192; height += 512)
         {
@@ -399,6 +405,8 @@ int main(int argc, char** argv)
             BENCHMARK(cn_turtle_lite_slow_hash_v0, o_iterations_long);
             BENCHMARK(cn_turtle_lite_slow_hash_v1, o_iterations_long);
             BENCHMARK(cn_turtle_lite_slow_hash_v2, o_iterations_long);
+			
+			BENCHMARK(pengo_slow_hash, o_iterations_long);
         }
     }
     catch (std::exception& e)

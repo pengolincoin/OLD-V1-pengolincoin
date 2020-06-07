@@ -7,9 +7,17 @@
 
 #pragma once
 
-#include <stddef.h>
+#include "argon2.h"
 
+#include <stddef.h>
 #include <CryptoTypes.h>
+
+// Pengo Definitions
+#define PENGO_HASHLEN 32 // The length of the resulting hash in bytes
+#define PENGO_SALTLEN 16 // The length of our salt in bytes
+#define PENGO_THREADS 1 // How many threads to use at once
+#define PENGO_ITERS 4 // How many iterations we perform as part of our slow-hash
+#define PENGO_MEMORY 256 // This value is in KiB (0.2MB)
 
 // Standard Cryptonight Definitions
 #define CN_PAGE_SIZE                    2097152
@@ -50,6 +58,8 @@ namespace Crypto {
 #include "hash-ops.h"
   }
 
+  static bool argon2_optimization_selected = false;
+  
   /*
     Cryptonight hash functions
   */
@@ -184,6 +194,27 @@ namespace Crypto {
 
     cn_slow_hash(data, length, reinterpret_cast<char *>(&hash), 1, 2, 0, pagesize, scratchpad, iterations);
   }
+  
+      inline void pengo_slow_hash(const void *data, size_t length, Hash &hash)
+    {
+        uint8_t salt[PENGO_SALTLEN];
+        memcpy(salt, data, sizeof(salt));
+
+        /* If this is the first time we've called this hash function then
+           we need to have the Argon2 library check to see if any of the
+           available CPU instruction sets are going to help us out */
+        if (!argon2_optimization_selected)
+        {
+            /* Call the library quick benchmark test to set which CPU
+               instruction sets will be used */
+            argon2_select_impl(NULL, NULL);
+
+            argon2_optimization_selected = true;
+        }
+
+        argon2id_hash_raw(
+            PENGO_ITERS, PENGO_MEMORY, PENGO_THREADS, data, length, salt, PENGO_SALTLEN, hash.data, PENGO_HASHLEN);
+    }
 
   inline void tree_hash(const Hash *hashes, size_t count, Hash &root_hash) {
     tree_hash(reinterpret_cast<const char (*)[HASH_SIZE]>(hashes), count, reinterpret_cast<char *>(&root_hash));

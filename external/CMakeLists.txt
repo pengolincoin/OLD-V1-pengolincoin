@@ -5,6 +5,7 @@ set(WITH_MD_LIBRARY OFF CACHE BOOL "Code Generation for static library")
 
 add_subdirectory(miniupnpc)
 add_subdirectory(cryptopp)
+add_subdirectory(argon2)
 
 if(MSVC)
     add_subdirectory(rocksDB EXCLUDE_FROM_ALL)
@@ -22,8 +23,8 @@ elseif(NOT MSVC)
 endif()
 
 if(MSVC)
-  set_property(TARGET upnpc-static APPEND_STRING PROPERTY COMPILE_FLAGS " -wd4244 -wd4267")
+  set_property(TARGET upnpc-static argon2 APPEND_STRING PROPERTY COMPILE_FLAGS " -wd4244 -wd4267")
 elseif(NOT MSVC)
-  set_property(TARGET upnpc-static APPEND_STRING PROPERTY COMPILE_FLAGS " -Wno-undef -Wno-unused-result -Wno-unused-value")
+  set_property(TARGET upnpc-static argon2 APPEND_STRING PROPERTY COMPILE_FLAGS " -Wno-undef -Wno-unused-result -Wno-unused-value")
 endif()
 
