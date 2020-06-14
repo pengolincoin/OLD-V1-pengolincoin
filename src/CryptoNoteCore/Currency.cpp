@@ -121,6 +121,8 @@ uint32_t Currency::upgradeHeight(uint8_t majorVersion) const {
     return m_upgradeHeightV4;
   } else if (majorVersion == BLOCK_MAJOR_VERSION_5) {
     return m_upgradeHeightV5;
+  } else if (majorVersion == BLOCK_MAJOR_VERSION_6) {
+    return m_upgradeHeightV6;
   } else {
     return static_cast<uint32_t>(-1);
   }
@@ -464,7 +466,7 @@ bool Currency::checkProofOfWorkV2(const CachedBlock& cachedBlock, uint64_t curre
 }
 
 bool Currency::checkProofOfWork(const CachedBlock& block, uint64_t currentDiffic) const {
-  if (block.getBlock().majorVersion > BLOCK_MAJOR_VERSION_5) {
+  if (block.getBlock().majorVersion > BLOCK_MAJOR_VERSION_6) {
 	logger(ERROR, BRIGHT_RED) << "Unknown block major version: " << block.getBlock().majorVersion << "." << block.getBlock().minorVersion;
     return false;
   }

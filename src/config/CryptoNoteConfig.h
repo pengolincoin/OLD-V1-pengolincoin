@@ -107,7 +107,7 @@ const uint32_t UPGRADE_HEIGHT_V2                             = 1;
 const uint32_t UPGRADE_HEIGHT_V3                             = 2;
 const uint32_t UPGRADE_HEIGHT_V4                             = 3; // Upgrade height for CN-Lite Variant 1 switch.
 const uint32_t UPGRADE_HEIGHT_V5                             = 4; // Upgrade height for CN-Turtle Variant 2 switch.
-const uint32_t UPGRADE_HEIGHT_V6                             = 130000; // Upgrade height for argon2pengo switch.
+const uint32_t UPGRADE_HEIGHT_V6                             = 130000; // Upgrade height for argon2-pengo switch.
 const uint32_t UPGRADE_HEIGHT_CURRENT                        = UPGRADE_HEIGHT_V6;
 
 const unsigned UPGRADE_VOTING_THRESHOLD                      = 90;               // percent
@@ -119,8 +119,8 @@ static_assert(UPGRADE_VOTING_WINDOW > 1, "Bad UPGRADE_VOTING_WINDOW");
 /* Block heights we are going to have hard forks at */
 const uint64_t FORK_HEIGHTS[] =
 {
-    100000, // fork block reward
-	130000, // fork to argon2pengo
+    100000, // fork
+	130000, // fork to argon2-pengo
 };
 
 /* MAKE SURE TO UPDATE THIS VALUE WITH EVERY MAJOR RELEASE BEFORE A FORK */
@@ -209,7 +209,6 @@ const static   boost::uuids::uuid CRYPTONOTE_NETWORK         =
 
 const char* const SEED_NODES[] = {
 	"78.46.222.91:17897", // vps
-    "157.245.253.29:17897", // US
 	"116.203.254.18:17897", // ft4a
     "116.203.178.152:17897" // clevery
 };
